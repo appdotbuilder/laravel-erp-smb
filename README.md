@@ -1,20 +1,23 @@
-# Welcome to your ✨ Laravel app!
+This app has been created with [app.build](https://app.build), an open-source platform for AI app development.
 
-_Built by [app.build](https://www.app.build)_
+Core stack:
+- TypeScript with [tRPC](https://trpc.io) for type-safe API communication;
+- React 19 with [Vite](https://vitejs.dev) for the frontend;
+- [Drizzle ORM](https://orm.drizzle.team) for database management;
+- PostgreSQL as the database;
+- [shadcn/ui](https://ui.shadcn.com) for UI components;
+- [Bun](https://bun.sh) as the runtime and package manager.
 
-## Deploy it to [Laravel Cloud](https://cloud.laravel.com/)
+The app can be run locally via docker compose:
+```bash
+docker compose up
+```
 
-[Laravel Cloud](https://cloud.laravel.com/) is the only fully managed platform-as-a-service (PaaS) obsessively optimized for shipping and scaling Laravel applications:
+## Project Structure
 
-- No application or server configuration necessary.
-- Fully managed databases.
-- Zero downtime deployments and scaling.
-- Automatic TLS and load balancing.
-- Cloud Edge Network.
-- Monitoring and logs.
+- `client/` - React frontend application (see [client/README.md](client/README.md) for Vite/React setup details)
+- `server/` - tRPC backend server with Drizzle ORM
+- `tests/` - Playwright test for end-to-end smoke testing;
 
-### Sign up there and follow the [quickstart](https://cloud.laravel.com/docs/quickstart):
-
-- Connect your GitHub account
-- Grant access to your repo (this repo)
-- Setup environment variables (like your database URL)
+For production-ready deployments, you can build an app image from the Dockerfile, and run it with the database configured as env variable APP_DATABASE_URL containing a connection string.
+We recommend using a managed Postgres database service for simpler production deployments. Sign up for a free trial at [Neon](https://get.neon.com/ab5) to get started quickly with $5 credit.
